@@ -1,6 +1,6 @@
 ﻿namespace TabletopRpg.Framework.DependencyInjection.Interfaces
 {
-    public interface ISingletonService
+    public interface ITransientDependency
     {
         
     }

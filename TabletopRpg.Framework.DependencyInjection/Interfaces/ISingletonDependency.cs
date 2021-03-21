@@ -1,6 +1,7 @@
 ﻿namespace TabletopRpg.Framework.DependencyInjection.Interfaces
 {
-    public interface IScopedService
+    public interface ISingletonDependency
     {
+        
     }
 }

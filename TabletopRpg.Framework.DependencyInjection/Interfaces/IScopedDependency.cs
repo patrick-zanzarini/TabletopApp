@@ -1,7 +1,6 @@
 ﻿namespace TabletopRpg.Framework.DependencyInjection.Interfaces
 {
-    public interface ITransientService
+    public interface IScopedDependency
     {
-        
     }
 }

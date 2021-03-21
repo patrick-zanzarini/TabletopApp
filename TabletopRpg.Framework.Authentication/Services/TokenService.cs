@@ -4,10 +4,11 @@ using System.Security.Claims;
 using System.Text;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using TabletopRpg.Framework.DependencyInjection.Interfaces;
 
 namespace TabletopRpg.Framework.Authentication.Services
 {
-    public class TokenService : ITokenService
+    public class TokenService : ITokenService, ITransientDependency
     {
         private readonly byte[] _key;
         private readonly int _expirationInMinutes;

@@ -2,10 +2,12 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TabletopRpg.Framework.Authentication.Services;
+using TabletopRpg.Framework.DependencyInjection.Interfaces;
 
 namespace TabletopRpgApp.Controllers
 {
     [Route("v1/authentication")]
+    [Authorize]
     public class AuthenticationController
     {
         private ITokenService _tokenService;
@@ -15,7 +17,7 @@ namespace TabletopRpgApp.Controllers
             _tokenService = tokenService;
         }
 
-        [HttpPost("login")]
+        [HttpGet("login")]
         [AllowAnonymous]
         public ActionResult<dynamic> Authenticate(string username, string password)
         {
@@ -23,6 +25,12 @@ namespace TabletopRpgApp.Controllers
             {
                 new("username", username),
             }));
+        }
+        
+        [HttpGet("check-auth")]
+        public ActionResult<dynamic> CheckAuth()
+        {
+            return "Welcome";
         }
     }
 }
