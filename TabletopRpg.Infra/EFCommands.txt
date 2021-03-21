@@ -1,1 +1,0 @@
-﻿dotnet ef dbcontext scaffold "Server=localhost;Database=TabletopRpg;User Id=appuser;Password=Teste123;" Microsoft.EntityFrameworkCore.SqlServer -c TabletopDbContext

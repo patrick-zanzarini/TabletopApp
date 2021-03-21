@@ -9,7 +9,8 @@ namespace TabletopRpg.Infra
         public static void AddTabletopRpgInfra(this IServiceCollection services, string connectionString)
         {
             services.AddDbContext<TabletopRpgDbContext>(
-                options => options.UseSqlServer(connectionString));
+                options => options.UseSqlServer(connectionString, x => x.MigrationsAssembly("TabletopRpg.Infra"))
+            );
         }
         
         public static void UseTabletopRpgInfra(this IApplicationBuilder app, TabletopRpgDbContext context)
