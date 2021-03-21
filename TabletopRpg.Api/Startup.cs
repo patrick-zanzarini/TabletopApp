@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using TabletopRpg.Framework;
 
 namespace TabletopRpgApp
 {
@@ -18,10 +19,14 @@ namespace TabletopRpgApp
         public void ConfigureServices(IServiceCollection services)
         {
             var key = Encoding.ASCII.GetBytes(Configuration["Jwt:Secret"]);
-            
-            
+
             services.AddCors();
             services.AddControllers();
+
+            services.AddTabletopRpgFramework(new Configuration
+            {
+                JwtSecret = key
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -39,6 +44,8 @@ namespace TabletopRpgApp
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+            
+            app.UseTabletopRpgFramework();
         }
     }
 }
