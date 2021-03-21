@@ -5,7 +5,7 @@ using System.Text;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
-namespace TabletopRpgApp.Services
+namespace TabletopRpg.Framework.Authentication.Services
 {
     public class TokenService : ITokenService
     {
@@ -19,15 +19,12 @@ namespace TabletopRpgApp.Services
         }
 
 
-        public string Generate(User user)
+        public string Generate(ClaimsIdentity claimsIdentity)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var tokenDescriptor = new SecurityTokenDescriptor
             {
-                Subject = new ClaimsIdentity(new Claim[]
-                {
-                    new Claim(ClaimTypes.Name, user.Name),
-                }),
+                Subject = claimsIdentity,
                 Expires = DateTime.UtcNow.AddMinutes(_expirationInMinutes),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(_key), SecurityAlgorithms.HmacSha256Signature)
             };

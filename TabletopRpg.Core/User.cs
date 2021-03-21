@@ -1,4 +1,4 @@
-﻿namespace TabletopRpgApp
+﻿namespace TabletopRpg.Framework.Authentication
 {
     public class User
     {

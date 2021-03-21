@@ -9,5 +9,9 @@
       <PackageReference Include="Scrutor" Version="3.3.0" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\TabletopRpg.Framework.Authentication\TabletopRpg.Framework.Authentication.csproj" />
+    </ItemGroup>
+
 
 </Project>

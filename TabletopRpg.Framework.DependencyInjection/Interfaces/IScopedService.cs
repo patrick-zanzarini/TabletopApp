@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace TabletopRpg.Framework.DependencyInjection
+﻿namespace TabletopRpg.Framework.DependencyInjection.Interfaces
 {
     public interface IScopedService
     {

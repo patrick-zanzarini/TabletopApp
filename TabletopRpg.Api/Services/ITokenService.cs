@@ -1,7 +1,0 @@
-﻿namespace TabletopRpgApp.Services
-{
-    public interface ITokenService
-    {
-        string Generate(User user);
-    }
-}

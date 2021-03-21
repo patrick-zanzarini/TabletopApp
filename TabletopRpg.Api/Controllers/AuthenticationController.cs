@@ -1,7 +1,7 @@
-﻿using System.Threading.Tasks;
+﻿using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using TabletopRpgApp.Services;
+using TabletopRpg.Framework.Authentication.Services;
 
 namespace TabletopRpgApp.Controllers
 {
@@ -14,15 +14,15 @@ namespace TabletopRpgApp.Controllers
         {
             _tokenService = tokenService;
         }
-        
+
         [HttpPost("login")]
         [AllowAnonymous]
         public ActionResult<dynamic> Authenticate(string username, string password)
         {
-            return _tokenService.Generate(new User
+            return _tokenService.Generate(new ClaimsIdentity(new Claim[]
             {
-                Name = username
-            });
+                new("username", username),
+            }));
         }
     }
 }
