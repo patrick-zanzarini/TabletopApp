@@ -45,9 +45,8 @@ namespace TabletopRpg.Api.Controllers
         }
 
         [HttpGet("check-auth")]
-        public ActionResult<string> CheckAuth([FromServices] IStringLocalizer<EntityResource> entityLocalizer)
+        public ActionResult<string> CheckAuth()
         {
-            var x = entityLocalizer["User"];
             return $"{CultureInfo.CurrentCulture} {_localizer["Welcome"]}";
         }
     }

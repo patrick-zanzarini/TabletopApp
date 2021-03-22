@@ -18,7 +18,8 @@ namespace TabletopRpg.Framework.Localization
             {
                 DefaultRequestCulture = @default,
                 SupportedCultures = supported,
-                SupportedUICultures = supported
+                SupportedUICultures = supported,
+                FallBackToParentUICultures = true
             });
         }
     }

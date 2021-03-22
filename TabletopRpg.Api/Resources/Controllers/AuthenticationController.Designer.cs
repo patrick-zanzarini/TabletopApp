@@ -9,6 +9,9 @@
 //------------------------------------------------------------------------------
 
 namespace TabletopRpg.Api.Resources.Controllers {
+    using System;
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -36,7 +39,7 @@ namespace TabletopRpg.Api.Resources.Controllers {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("TabletopRpgApp.Resources.AuthenticationController.AuthenticationController", typeof(AuthenticationController).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("TabletopRpg.Api.Resources.Controllers.AuthenticationController", typeof(AuthenticationController).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -58,7 +61,7 @@ namespace TabletopRpg.Api.Resources.Controllers {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to en-us.
+        ///   Looks up a localized string similar to Welcome.
         /// </summary>
         internal static string Welcome {
             get {

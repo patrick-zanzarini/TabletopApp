@@ -46,7 +46,7 @@ namespace TabletopRpg.Api
                 new("pt-br")
             };
             app.UseTabletopRpgFramework(new ApplicationConfiguration()
-                {DefaultCulture = new RequestCulture(supportedCultures[0]), SupportedCulture = supportedCultures});
+                {DefaultCulture = new RequestCulture(supportedCultures[1]), SupportedCulture = supportedCultures});
 
             app.UseHttpsRedirection();
             app.UseRouting();
