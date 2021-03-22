@@ -12,6 +12,7 @@
     <ItemGroup>
       <ProjectReference Include="..\TabletopRpg.Framework.Authentication\TabletopRpg.Framework.Authentication.csproj" />
       <ProjectReference Include="..\TabletopRpg.Framework.DependencyInjection\TabletopRpg.Framework.DependencyInjection.csproj" />
+      <ProjectReference Include="..\TabletopRpg.Framework.Localization\TabletopRpg.Framework.Localization.csproj" />
     </ItemGroup>
 
 </Project>

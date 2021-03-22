@@ -4,6 +4,7 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
+using TabletopRpg.Core;
 using TabletopRpg.DataAccess.Contexts;
 using TabletopRpg.Framework.Authentication.Services;
 
@@ -44,10 +45,10 @@ namespace TabletopRpg.Api.Controllers
         }
 
         [HttpGet("check-auth")]
-        public ActionResult<string> CheckAuth()
+        public ActionResult<string> CheckAuth([FromServices] IStringLocalizer<EntityResource> entityLocalizer)
         {
-            var x = _localizer["Welcome"];
-            return $"{CultureInfo.CurrentCulture} {_localizer["Welcome"].Value}";
+            var x = entityLocalizer["User"];
+            return $"{CultureInfo.CurrentCulture} {_localizer["Welcome"]}";
         }
     }
 }

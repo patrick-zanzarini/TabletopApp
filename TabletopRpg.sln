@@ -24,6 +24,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Authentication", "Authentic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TabletopRpg.Framework.Authentication", "TabletopRpg.Framework.Authentication\TabletopRpg.Framework.Authentication.csproj", "{8D93B94A-F8E4-4D91-8FE9-6713A28944F2}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Localization", "Localization", "{6700FFED-7A4C-4189-A63B-52AF1086518E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TabletopRpg.Framework.Localization", "TabletopRpg.Framework.Localization\TabletopRpg.Framework.Localization.csproj", "{39AF26F0-8FFA-4591-B5B0-960201AC4947}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -54,6 +58,10 @@ Global
 		{8D93B94A-F8E4-4D91-8FE9-6713A28944F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D93B94A-F8E4-4D91-8FE9-6713A28944F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D93B94A-F8E4-4D91-8FE9-6713A28944F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39AF26F0-8FFA-4591-B5B0-960201AC4947}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39AF26F0-8FFA-4591-B5B0-960201AC4947}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39AF26F0-8FFA-4591-B5B0-960201AC4947}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39AF26F0-8FFA-4591-B5B0-960201AC4947}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{8FB387F9-EEE8-48D1-8EAC-4807190FE593} = {7E6A6AD0-48D7-42D1-AF18-CA89B6B49C88}
@@ -64,5 +72,7 @@ Global
 		{630F2720-4398-42AD-9430-5C734103DF38} = {891A99A5-62C8-4777-A7D4-DB9068426A5D}
 		{11CAD407-6630-49EA-8513-99B4AF129242} = {78980F56-4325-4CEF-9268-231DDC129343}
 		{8D93B94A-F8E4-4D91-8FE9-6713A28944F2} = {11CAD407-6630-49EA-8513-99B4AF129242}
+		{6700FFED-7A4C-4189-A63B-52AF1086518E} = {78980F56-4325-4CEF-9268-231DDC129343}
+		{39AF26F0-8FFA-4591-B5B0-960201AC4947} = {6700FFED-7A4C-4189-A63B-52AF1086518E}
 	EndGlobalSection
 EndGlobal

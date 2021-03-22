@@ -27,31 +27,27 @@ namespace TabletopRpg.Api
 
             services.AddCors();
             services.AddControllers();
-            services.AddTabletopRpgFramework(new Configuration
+            services.AddTabletopRpgFramework(new ServiceConfiguration
             {
                 JwtSecret = jwtKey
             });
             services.AddTabletopRpgDataAccess(connection);
 
-            services.AddLocalization(opts =>  opts.ResourcesPath = "Resources");
+            services.AddLocalization(opts => opts.ResourcesPath = "Resources");
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, TabletopRpgDbContext context)
         {
             app.UseStaticFiles();
+            
             var supportedCultures = new CultureInfo[]
             {
                 new("en-us"),
                 new("pt-br")
             };
-            
-            app.UseRequestLocalization(new RequestLocalizationOptions()
-            {
-                DefaultRequestCulture = new RequestCulture("en-us"),
-                SupportedCultures = supportedCultures,
-                SupportedUICultures = supportedCultures
-            });
-            
+            app.UseTabletopRpgFramework(new ApplicationConfiguration()
+                {DefaultCulture = new RequestCulture(supportedCultures[0]), SupportedCulture = supportedCultures});
+
             app.UseHttpsRedirection();
             app.UseRouting();
 
@@ -60,9 +56,8 @@ namespace TabletopRpg.Api
                 .AllowAnyMethod()
                 .AllowAnyHeader());
 
-            app.UseTabletopRpgFramework();
             app.UseTabletopRpgDataAccess(context);
-            
+
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
