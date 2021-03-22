@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using TabletopRpg.Framework;
 using TabletopRpg.Infra;
+using TabletopRpg.Infra.Contexts;
 
 namespace TabletopRpgApp
 {

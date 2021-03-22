@@ -1,9 +1,8 @@
 ﻿using System.Reflection;
 using Microsoft.EntityFrameworkCore;
-using TabletopRpg.Core;
 using TabletopRpg.Core.Entities;
 
-namespace TabletopRpg.Infra
+namespace TabletopRpg.Infra.Contexts
 {
     public class TabletopRpgDbContext : DbContext
     {

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TabletopRpg.Framework.Authentication.Services;
 using TabletopRpg.Infra;
+using TabletopRpg.Infra.Contexts;
 
 namespace TabletopRpgApp.Controllers
 {

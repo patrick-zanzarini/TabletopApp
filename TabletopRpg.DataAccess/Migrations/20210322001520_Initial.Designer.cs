@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TabletopRpg.Infra;
+using TabletopRpg.Infra.Contexts;
 
 namespace TabletopRpg.Infra.Migrations
 {

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using TabletopRpg.Infra.Contexts;
 
 namespace TabletopRpg.Infra
 {
