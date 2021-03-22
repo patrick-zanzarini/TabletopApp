@@ -8,10 +8,8 @@ namespace TabletopRpg.Infra.Contexts
         public TabletopRpgDbContext CreateDbContext(string[] args)
         {
             var optionsBuilder = new DbContextOptionsBuilder<TabletopRpgDbContext>();
-            optionsBuilder.UseSqlServer("Server=localhost;Database=TabletopRpg;User Id=appuser;Password=Teste123;");
-
+            optionsBuilder.UseSqlServer("Server=localhost;Database=TabletopRpg;User Id=application;Password=devPass;");
             return new TabletopRpgDbContext(optionsBuilder.Options);
-
         }
     }
 }
