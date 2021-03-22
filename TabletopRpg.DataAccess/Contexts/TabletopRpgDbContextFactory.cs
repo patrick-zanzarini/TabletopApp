@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 
-namespace TabletopRpg.Infra.Contexts
+namespace TabletopRpg.DataAccess.Contexts
 {
     public class TabletopRpgDbContextFactory: IDesignTimeDbContextFactory<TabletopRpgDbContext>
     {

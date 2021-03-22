@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace TabletopRpg.Infra.Migrations
+namespace TabletopRpg.DataAccess.Migrations
 {
     public partial class FixUserStringLength : Migration
     {

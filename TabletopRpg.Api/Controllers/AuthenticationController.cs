@@ -1,38 +1,42 @@
-﻿using System.Linq;
+﻿using System.Globalization;
+using System.Linq;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Localization;
+using TabletopRpg.DataAccess.Contexts;
 using TabletopRpg.Framework.Authentication.Services;
-using TabletopRpg.Infra;
-using TabletopRpg.Infra.Contexts;
 
-namespace TabletopRpgApp.Controllers
+namespace TabletopRpg.Api.Controllers
 {
     [Route("v1/authentication")]
     [Authorize]
-    public class AuthenticationController: Controller
+    public class AuthenticationController : Controller
     {
         private ITokenService _tokenService;
         private TabletopRpgDbContext _context;
+        private IStringLocalizer<AuthenticationController> _localizer;
 
-        public AuthenticationController(ITokenService tokenService, TabletopRpgDbContext context)
+        public AuthenticationController(ITokenService tokenService, TabletopRpgDbContext context,
+            IStringLocalizer<AuthenticationController> localizer)
         {
             _tokenService = tokenService;
             _context = context;
+            _localizer = localizer;
         }
 
         [HttpGet("login")]
         [AllowAnonymous]
         public ActionResult<string> Authenticate(string username, string password)
         {
-            var user = _context.Users.FirstOrDefault(x => x.Username == username);
+            var user = _context.Users.FirstOrDefault(x => x.Username == username && x.Password == password);
 
             if (user != null)
             {
                 var token = _tokenService.Generate(new ClaimsIdentity(
                     new Claim[] {new("id", user.Id.ToString())})
                 );
-                
+
                 return Ok(token);
             }
 
@@ -42,7 +46,8 @@ namespace TabletopRpgApp.Controllers
         [HttpGet("check-auth")]
         public ActionResult<string> CheckAuth()
         {
-            return "Welcome";
+            var x = _localizer["Welcome"];
+            return $"{CultureInfo.CurrentCulture} {_localizer["Welcome"].Value}";
         }
     }
 }

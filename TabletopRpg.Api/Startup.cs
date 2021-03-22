@@ -1,13 +1,15 @@
+using System.Globalization;
 using System.Text;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using TabletopRpg.DataAccess;
+using TabletopRpg.DataAccess.Contexts;
 using TabletopRpg.Framework;
-using TabletopRpg.Infra;
-using TabletopRpg.Infra.Contexts;
 
-namespace TabletopRpgApp
+namespace TabletopRpg.Api
 {
     public class Startup
     {
@@ -25,17 +27,31 @@ namespace TabletopRpgApp
 
             services.AddCors();
             services.AddControllers();
-
             services.AddTabletopRpgFramework(new Configuration
             {
                 JwtSecret = jwtKey
             });
+            services.AddTabletopRpgDataAccess(connection);
 
-            services.AddTabletopRpgInfra(connection);
+            services.AddLocalization(opts =>  opts.ResourcesPath = "Resources");
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, TabletopRpgDbContext context)
         {
+            app.UseStaticFiles();
+            var supportedCultures = new CultureInfo[]
+            {
+                new("en-us"),
+                new("pt-br")
+            };
+            
+            app.UseRequestLocalization(new RequestLocalizationOptions()
+            {
+                DefaultRequestCulture = new RequestCulture("en-us"),
+                SupportedCultures = supportedCultures,
+                SupportedUICultures = supportedCultures
+            });
+            
             app.UseHttpsRedirection();
             app.UseRouting();
 
@@ -44,13 +60,12 @@ namespace TabletopRpgApp
                 .AllowAnyMethod()
                 .AllowAnyHeader());
 
+            app.UseTabletopRpgFramework();
+            app.UseTabletopRpgDataAccess(context);
+            
             app.UseAuthentication();
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
-
-            app.UseTabletopRpgFramework();
-            app.UseTabletopRpgInfra(context);
         }
     }
 }

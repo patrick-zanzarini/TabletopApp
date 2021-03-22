@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
-        <RootNamespace>TabletopRpg.Infra</RootNamespace>
+        <RootNamespace>TabletopRpg.DataAccess</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>

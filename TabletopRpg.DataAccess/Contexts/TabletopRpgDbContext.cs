@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using TabletopRpg.Core.Entities;
 
-namespace TabletopRpg.Infra.Contexts
+namespace TabletopRpg.DataAccess.Contexts
 {
     public class TabletopRpgDbContext : DbContext
     {

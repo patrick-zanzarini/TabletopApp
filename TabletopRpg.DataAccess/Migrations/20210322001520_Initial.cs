@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace TabletopRpg.Infra.Migrations
+namespace TabletopRpg.DataAccess.Migrations
 {
     public partial class Initial : Migration
     {

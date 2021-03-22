@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
-        <RootNamespace>TabletopRpgApp</RootNamespace>
+        <RootNamespace>TabletopRpg.Api</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -14,6 +14,21 @@
       <ProjectReference Include="..\TabletopRpg.DataAccess\TabletopRpg.DataAccess.csproj" />
       <ProjectReference Include="..\TabletopRpg.Framework.Authentication\TabletopRpg.Framework.Authentication.csproj" />
       <ProjectReference Include="..\TabletopRpg.Framework\TabletopRpg.Framework.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Update="Resources\Controllers\AuthenticationController.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>AuthenticationController.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Resources\Controllers\AuthenticationController.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>AuthenticationController.resx</DependentUpon>
+      </Compile>
     </ItemGroup>
 
 

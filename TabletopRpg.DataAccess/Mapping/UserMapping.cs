@@ -1,9 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using TabletopRpg.Core;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using TabletopRpg.Core.Entities;
 
-namespace TabletopRpg.Infra.Mapping
+namespace TabletopRpg.DataAccess.Mapping
 {
     public class UserMapping : EntityTypeConfiguration<User>
     {
