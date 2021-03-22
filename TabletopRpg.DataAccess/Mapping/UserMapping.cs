@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using TabletopRpg.Core;
+using TabletopRpg.Core.Entities;
 
 namespace TabletopRpg.Infra.Mapping
 {

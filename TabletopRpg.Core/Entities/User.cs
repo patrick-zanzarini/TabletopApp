@@ -1,4 +1,4 @@
-﻿namespace TabletopRpg.Core
+﻿namespace TabletopRpg.Core.Entities
 {
     public class User: Entity
     {

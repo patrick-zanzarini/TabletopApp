@@ -10,7 +10,7 @@ using TabletopRpg.Infra;
 namespace TabletopRpg.Infra.Migrations
 {
     [DbContext(typeof(TabletopRpgDbContext))]
-    [Migration("20210321220615_Initial")]
+    [Migration("20210322001520_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -21,7 +21,7 @@ namespace TabletopRpg.Infra.Migrations
                 .HasAnnotation("ProductVersion", "5.0.4")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("TabletopRpg.Core.User", b =>
+            modelBuilder.Entity("TabletopRpg.Core.Entities.User", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()

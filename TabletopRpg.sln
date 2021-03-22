@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TabletopRpg.Api", "TabletopRpg.Api\TabletopRpg.Api.csproj", "{8FB387F9-EEE8-48D1-8EAC-4807190FE593}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TabletopRpg.Infra", "TabletopRpg.Infra\TabletopRpg.Infra.csproj", "{F8D32491-4588-4A3C-8FE5-186C41A6D248}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TabletopRpg.DataAccess", "TabletopRpg.DataAccess\TabletopRpg.DataAccess.csproj", "{F8D32491-4588-4A3C-8FE5-186C41A6D248}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TabletopRpg.Core", "TabletopRpg.Core\TabletopRpg.Core.csproj", "{DA590020-231F-49FF-983C-D475363D35CF}"
 EndProject
@@ -14,7 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{7E6A6AD0-48D
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{23568E4D-9ABE-497A-9932-A519C1F66835}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra", "Infra", "{E92B84C5-55F8-4DB0-872F-BDDB845F8383}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAccess", "DataAccess", "{E92B84C5-55F8-4DB0-872F-BDDB845F8383}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DependencyInjection", "DependencyInjection", "{891A99A5-62C8-4777-A7D4-DB9068426A5D}"
 EndProject

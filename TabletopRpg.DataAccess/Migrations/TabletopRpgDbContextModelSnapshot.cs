@@ -19,7 +19,7 @@ namespace TabletopRpg.Infra.Migrations
                 .HasAnnotation("ProductVersion", "5.0.4")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("TabletopRpg.Core.User", b =>
+            modelBuilder.Entity("TabletopRpg.Core.Entities.User", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TabletopRpg.Core
+namespace TabletopRpg.Core.Entities
 {
     public class Entity
     {

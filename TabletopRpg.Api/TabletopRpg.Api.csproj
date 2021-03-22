@@ -10,9 +10,9 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\TabletopRpg.DataAccess\TabletopRpg.DataAccess.csproj" />
       <ProjectReference Include="..\TabletopRpg.Framework.Authentication\TabletopRpg.Framework.Authentication.csproj" />
       <ProjectReference Include="..\TabletopRpg.Framework\TabletopRpg.Framework.csproj" />
-      <ProjectReference Include="..\TabletopRpg.Infra\TabletopRpg.Infra.csproj" />
     </ItemGroup>
 
 

@@ -1,34 +1,45 @@
-﻿using System.Security.Claims;
+﻿using System.Linq;
+using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TabletopRpg.Framework.Authentication.Services;
-using TabletopRpg.Framework.DependencyInjection.Interfaces;
+using TabletopRpg.Infra;
 
 namespace TabletopRpgApp.Controllers
 {
     [Route("v1/authentication")]
     [Authorize]
-    public class AuthenticationController
+    public class AuthenticationController: Controller
     {
         private ITokenService _tokenService;
+        private TabletopRpgDbContext _context;
 
-        public AuthenticationController(ITokenService tokenService)
+        public AuthenticationController(ITokenService tokenService, TabletopRpgDbContext context)
         {
             _tokenService = tokenService;
+            _context = context;
         }
 
         [HttpGet("login")]
         [AllowAnonymous]
-        public ActionResult<dynamic> Authenticate(string username, string password)
+        public ActionResult<string> Authenticate(string username, string password)
         {
-            return _tokenService.Generate(new ClaimsIdentity(new Claim[]
+            var user = _context.Users.FirstOrDefault(x => x.Username == username);
+
+            if (user != null)
             {
-                new("username", username),
-            }));
+                var token = _tokenService.Generate(new ClaimsIdentity(
+                    new Claim[] {new("id", user.Id.ToString())})
+                );
+                
+                return Ok(token);
+            }
+
+            return Unauthorized();
         }
-        
+
         [HttpGet("check-auth")]
-        public ActionResult<dynamic> CheckAuth()
+        public ActionResult<string> CheckAuth()
         {
             return "Welcome";
         }
