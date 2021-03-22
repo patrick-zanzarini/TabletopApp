@@ -5,14 +5,23 @@ using TabletopRpg.Core.Entities;
 
 namespace TabletopRpg.Infra.Mapping
 {
-    public class UserMapping: EntityTypeConfiguration<User>
+    public class UserMapping : EntityTypeConfiguration<User>
     {
         public override void Configure(EntityTypeBuilder<User> builder)
         {
             base.Configure(builder);
-            builder.Property(x => x.Name).IsRequired();
-            builder.Property(x => x.Username).IsRequired();
-            builder.Property(x => x.Password).IsRequired();
+            
+            builder.Property(x => x.Name)
+                .HasMaxLength(50)
+                .IsRequired();
+
+            builder.Property(x => x.Username)
+                .HasMaxLength(50)
+                .IsRequired();
+
+            builder.Property(x => x.Password)
+                .HasMaxLength(50)
+                .IsRequired();
         }
     }
 }
