@@ -10,7 +10,7 @@ namespace TabletopRpg.DataAccess.Mapping
             base.Configure(builder);
 
             builder.HasOne(x => x.Room)
-                .WithMany(x => x.RoomUserPermissions);
+                .WithMany(x => x.UserPermissions);
 
             builder.HasOne(x => x.User)
                 .WithMany(x => x.RoomUserPermissions);

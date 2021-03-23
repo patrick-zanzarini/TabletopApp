@@ -9,13 +9,11 @@ namespace TabletopRpg.DataAccess.Mapping
         {
             base.Configure(builder);
 
-            builder.HasOne(x => x.ChatRoom)
-                .WithOne(x => x.Room);
-            
-            builder.HasOne(x => x.RoleplayChatRoom)
-                .WithOne(x => x.Room);
+            builder.HasOne(x => x.RoleplayChat)
+                .WithOne(x => x.Room)
+                .HasForeignKey<Room>(b => b.RoleplayChatId);
 
-            builder.HasMany(x => x.RoomUserPermissions)
+            builder.HasMany(x => x.UserPermissions)
                 .WithOne(x => x.Room);
         }
     }

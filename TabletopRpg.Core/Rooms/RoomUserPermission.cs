@@ -6,5 +6,7 @@ namespace TabletopRpg.Core.Rooms
     {
         public Room Room { get; set; }
         public User User { get; set; }
+
+        public RoomUserAccessPermission AccessPermission { get; set; }
     }
 }

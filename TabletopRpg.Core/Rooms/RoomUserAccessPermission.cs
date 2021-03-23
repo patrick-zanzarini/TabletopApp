@@ -1,6 +1,6 @@
 ﻿namespace TabletopRpg.Core.Rooms
 {
-    public enum RoomUserPermissionAccess
+    public enum RoomUserAccessPermission
     {
         Owner,
         GameMaster,
