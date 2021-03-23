@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 using Microsoft.EntityFrameworkCore;
-using TabletopRpg.Core.Entities;
+using TabletopRpg.Core.Domain;
 
 namespace TabletopRpg.DataAccess.Contexts
 {

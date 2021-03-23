@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using TabletopRpg.Core.Entities;
+using TabletopRpg.Core.Domain;
 
 namespace TabletopRpg.DataAccess.Mapping
 {
@@ -10,6 +10,7 @@ namespace TabletopRpg.DataAccess.Mapping
         {
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Id).ValueGeneratedOnAdd();
+            builder.Property(x => x.CreatedDate).HasDefaultValueSql("getdate()");
         }
     }
 }

@@ -4,19 +4,4 @@
         <TargetFramework>net5.0</TargetFramework>
     </PropertyGroup>
 
-    <ItemGroup>
-      <EmbeddedResource Update="Resources\EntityResource.resx">
-        <Generator>ResXFileCodeGenerator</Generator>
-        <LastGenOutput>EntityResource.Designer.cs</LastGenOutput>
-      </EmbeddedResource>
-    </ItemGroup>
-
-    <ItemGroup>
-      <Compile Update="Resources\EntityResource.Designer.cs">
-        <DesignTime>True</DesignTime>
-        <AutoGen>True</AutoGen>
-        <DependentUpon>EntityResource.resx</DependentUpon>
-      </Compile>
-    </ItemGroup>
-
 </Project>

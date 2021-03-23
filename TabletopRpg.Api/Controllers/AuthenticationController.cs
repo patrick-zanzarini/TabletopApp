@@ -16,14 +16,11 @@ namespace TabletopRpg.Api.Controllers
     {
         private ITokenService _tokenService;
         private TabletopRpgDbContext _context;
-        private IStringLocalizer<AuthenticationController> _localizer;
 
-        public AuthenticationController(ITokenService tokenService, TabletopRpgDbContext context,
-            IStringLocalizer<AuthenticationController> localizer)
+        public AuthenticationController(ITokenService tokenService, TabletopRpgDbContext context)
         {
             _tokenService = tokenService;
             _context = context;
-            _localizer = localizer;
         }
 
         [HttpGet("login")]
@@ -47,7 +44,7 @@ namespace TabletopRpg.Api.Controllers
         [HttpGet("check-auth")]
         public ActionResult<string> CheckAuth()
         {
-            return $"{CultureInfo.CurrentCulture} {_localizer["Welcome"]}";
+            return $"{CultureInfo.CurrentCulture}";
         }
     }
 }

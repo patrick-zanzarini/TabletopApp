@@ -10,7 +10,6 @@ namespace TabletopRpg.Framework
     {
         public static void AddTabletopRpgFramework(this IServiceCollection services, ServiceConfiguration config)
         {
-            services.AddTabletopRpgLocalization(config.ResourcePath);
             services.AddTabletopRpgAuthentication(config.JwtSecret);
             services.AddTabletopRpgDependencyInjection();
         }

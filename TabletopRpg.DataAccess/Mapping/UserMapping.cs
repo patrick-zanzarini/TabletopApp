@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using TabletopRpg.Core.Entities;
+using TabletopRpg.Core.Domain;
 
 namespace TabletopRpg.DataAccess.Mapping
 {

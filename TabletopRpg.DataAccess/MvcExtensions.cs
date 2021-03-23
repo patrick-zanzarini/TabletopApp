@@ -10,10 +10,10 @@ namespace TabletopRpg.DataAccess
         public static void AddTabletopRpgDataAccess(this IServiceCollection services, string connectionString)
         {
             services.AddDbContext<TabletopRpgDbContext>(
-                options => options.UseSqlServer(connectionString, x => x.MigrationsAssembly("TabletopRpg.DataAccess"))
+                options => options.UseSqlServer(connectionString)
             );
         }
-        
+
         public static void UseTabletopRpgDataAccess(this IApplicationBuilder app, TabletopRpgDbContext context)
         {
             context.Database.Migrate();
