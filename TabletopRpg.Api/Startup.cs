@@ -40,7 +40,7 @@ namespace TabletopRpg.Api
         {
             app.UseStaticFiles();
             
-            app.UseTabletopRpgFramework(new ApplicationConfiguration());
+            app.UseTabletopRpgFramework();
 
             app.UseHttpsRedirection();
             app.UseRouting();

@@ -14,9 +14,8 @@ namespace TabletopRpg.Framework
             services.AddTabletopRpgDependencyInjection();
         }
 
-        public static void UseTabletopRpgFramework(this IApplicationBuilder app, ApplicationConfiguration config)
+        public static void UseTabletopRpgFramework(this IApplicationBuilder app, ApplicationConfiguration config = null)
         {
-            app.UseTabletopRpgLocalization(config.SupportedCulture, config.DefaultCulture);
         }
     }
 }

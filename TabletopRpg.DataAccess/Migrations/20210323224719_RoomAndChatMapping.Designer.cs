@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TabletopRpg.DataAccess.Contexts;
 
 namespace TabletopRpg.DataAccess.Migrations
 {
     [DbContext(typeof(TabletopRpgDbContext))]
-    partial class TabletopRpgDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210323224719_RoomAndChatMapping")]
+    partial class RoomAndChatMapping
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
