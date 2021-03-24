@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using TabletopRpg.Api.Hubs;
 using TabletopRpg.DataAccess;
 using TabletopRpg.DataAccess.Contexts;
 using TabletopRpg.Framework;
@@ -33,28 +34,40 @@ namespace TabletopRpg.Api
             });
             services.AddTabletopRpgDataAccess(connection);
 
-            services.AddLocalization(opts => opts.ResourcesPath = "Resources");
+            services.AddSignalR();
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy", x => x
+                    .WithOrigins("http://localhost:4200")
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials()
+                );
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, TabletopRpgDbContext context)
         {
+            app.UseCors("CorsPolicy");
+
             app.UseStaticFiles();
-            
+
             app.UseTabletopRpgFramework();
+            app.UseTabletopRpgDataAccess(context);
 
             app.UseHttpsRedirection();
             app.UseRouting();
 
-            app.UseCors(x => x
-                .AllowAnyOrigin()
-                .AllowAnyMethod()
-                .AllowAnyHeader());
-
-            app.UseTabletopRpgDataAccess(context);
 
             app.UseAuthentication();
-            app.UseAuthorization();
-            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+            // app.UseAuthorization();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+                endpoints.MapHub<RoomChatHub>("/room-chat");
+            });
         }
     }
 }

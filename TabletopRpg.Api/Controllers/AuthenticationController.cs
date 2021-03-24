@@ -32,7 +32,7 @@ namespace TabletopRpg.Api.Controllers
             if (user != null)
             {
                 var token = _tokenService.Generate(new ClaimsIdentity(
-                    new Claim[] {new("id", user.Id.ToString())})
+                    new Claim[] { new("id", user.Id.ToString()), new (ClaimTypes.Name, user.Name) })
                 );
 
                 return Ok(token);
@@ -44,7 +44,7 @@ namespace TabletopRpg.Api.Controllers
         [HttpGet("check-auth")]
         public ActionResult<string> CheckAuth()
         {
-            return $"{CultureInfo.CurrentCulture}";
+            return $"{CultureInfo.CurrentCulture} {User.Identity?.Name}";
         }
     }
 }
