@@ -64,7 +64,7 @@ namespace TabletopRpg.Api
             UseAndConfigWebsocket(app);
 
             app.UseAuthentication();
-            // app.UseAuthorization();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
@@ -81,9 +81,7 @@ namespace TabletopRpg.Api
             };
 
             webSocketOptions.AllowedOrigins.Add("http://localhost:4200");
-            ;
             webSocketOptions.AllowedOrigins.Add("https://localhost:4200");
-            ;
 
             app.UseWebSockets(webSocketOptions);
         }
