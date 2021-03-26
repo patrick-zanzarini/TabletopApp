@@ -3,7 +3,6 @@ using System.Globalization;
 using System.Text;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using TabletopRpg.Api.Hubs;
@@ -60,7 +59,6 @@ namespace TabletopRpg.Api
             app.UseTabletopRpgDataAccess(context);
 
             app.UseRouting();
-
             UseAndConfigWebsocket(app);
 
             app.UseAuthentication();
@@ -69,7 +67,7 @@ namespace TabletopRpg.Api
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                endpoints.MapHub<RoomChatHub>("/room-chat");
+                endpoints.MapHub<RoomChatHub>("/hub/room-chat");
             });
         }
 
@@ -81,7 +79,6 @@ namespace TabletopRpg.Api
             };
 
             webSocketOptions.AllowedOrigins.Add("http://localhost:4200");
-            webSocketOptions.AllowedOrigins.Add("https://localhost:4200");
 
             app.UseWebSockets(webSocketOptions);
         }

@@ -3,8 +3,6 @@ using System.Linq;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Localization;
-using TabletopRpg.Core;
 using TabletopRpg.DataAccess.Contexts;
 using TabletopRpg.Framework.Authentication.Services;
 
@@ -23,7 +21,7 @@ namespace TabletopRpg.Api.Controllers
             _context = context;
         }
 
-        [HttpGet("login")]
+        [HttpGet("sign-in")]
         [AllowAnonymous]
         public ActionResult<string> Authenticate(string username, string password)
         {

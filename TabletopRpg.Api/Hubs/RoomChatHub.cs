@@ -1,13 +1,17 @@
 ﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
 
 namespace TabletopRpg.Api.Hubs
 {
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class RoomChatHub : Hub
     {
         public async Task SendMessage(string message)
         {
-            await Clients.Group(GetHubName()).SendAsync("SendMessage", "username", message);
+            var username = Context.User.Identity.Name;
+            await Clients.Group(GetHubName()).SendAsync("SendMessage", username, message);
         }
 
         public async Task Join()
